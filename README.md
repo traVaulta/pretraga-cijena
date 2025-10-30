@@ -1,59 +1,41 @@
-# PriceLookup
+# Primjer pretrage proizvoda
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.3.
+[![Screenshot of UI](./screenshots/preview.png "Screenshot of UI")](./screenshots/preview.png)
+
+Primjer playground Angular aplikacije koja se povezuje sa Supabase backendom za dohvat cijena proizvoda.
+
+Proizvodi dobiveni inicijativom za uvid u cijene dućana.
 
 ## Development server
 
-To start a local development server, run:
+Za pokrenuti lokalno development server, u terminalu pozvati Angular CLI komandu:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Locirati se u pregledniku na `http://localhost:4200/`.
 
-## Code scaffolding
+## Preduvjeti
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Angular CLI: 20+
+- NodeJS: 22+
 
-```bash
-ng generate component component-name
+Napraviti svoju Supabase bazu i staviti ključeve u `public/config.json` datoteku:
+
+```json
+{
+  "supabase": {
+    "url": "url-vlastitog-projekta",
+    "key": "vlastiti-ključ"
+  }
+}
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Autor
 
-```bash
-ng generate --help
-```
+- [Matija Čvrk](https://hr.linkedin.com/in/matija-%C4%8Dvrk-1388b3101/)
 
-## Building
+## License
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- [GNU AGPL Version 3](./LICENSE)

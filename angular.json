@@ -51,11 +51,18 @@
               }
             ],
             "styles": [
+              "src/bootstrap.css",
               "src/styles.scss"
             ]
           },
           "configurations": {
             "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/bootstrap.css",
+                  "replaceWith": "src/bootstrap.prod.css"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
