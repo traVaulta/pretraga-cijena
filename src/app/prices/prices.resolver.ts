@@ -1,12 +1,9 @@
 import { ResolveFn } from '@angular/router';
-import { createClient } from '@supabase/supabase-js';
 import { inject } from '@angular/core';
-import { API_CONFIG } from '../app.config';
+import { SUPABASE_CLIENT } from '../../infra/sup.client';
 
 export const pricesResolver: ResolveFn<any[]> = async (route, state) => {
-  const { supabase: apiConfig } = inject(API_CONFIG);
-  const { key: supabaseKey, url: supabaseUrl } = apiConfig;
-  const supabase = createClient(supabaseUrl, supabaseKey);
+  const supabase = inject(SUPABASE_CLIENT);
 
   const {
     data,

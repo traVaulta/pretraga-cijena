@@ -36,12 +36,12 @@ Napraviti svoju Supabase bazu i staviti ključeve u `public/config.json` datotek
 
 Pokrenuti u terminalu s naredbom:
 ```shell
-npx ava src/**/*.test.ts
+npm test
 ```
 
 Ako koristite bun onda ovako:
 ```shell
-bunx ava src/**/*.test.ts
+bun test
 ```
 
 ## Autor

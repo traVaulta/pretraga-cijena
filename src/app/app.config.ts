@@ -7,11 +7,16 @@ import {
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
+import { provideSupClient, SUPABASE_CLIENT } from '../infra/sup.client';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
+    {
+      provide: SUPABASE_CLIENT,
+      useFactory: provideSupClient
+    },
     provideRouter(routes)
   ]
 };
