@@ -32,6 +32,18 @@ Napraviti svoju Supabase bazu i staviti ključeve u `public/config.json` datotek
 }
 ```
 
+## Unit testovi
+
+Pokrenuti u terminalu s naredbom:
+```shell
+npx ava src/**/*.test.ts
+```
+
+Ako koristite bun onda ovako:
+```shell
+bunx ava src/**/*.test.ts
+```
+
 ## Autor
 
 - [Matija Čvrk](https://hr.linkedin.com/in/matija-%C4%8Dvrk-1388b3101/)

@@ -1,15 +1,16 @@
 import { Component, computed, inject, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { NgForOf } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { filterProducts } from '../common/utils';
 
 @Component({
   selector: 'pcs-prices',
   standalone: true,
   imports: [
-    NgForOf,
-    FormsModule
+    FormsModule,
+    CurrencyPipe
   ],
   template: `
     <div class="card">
@@ -31,12 +32,14 @@ import { FormsModule } from '@angular/forms';
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let product of productData(); index as i">
-                <td>{{product.product_id}}</td>
-                <td>{{product.store_id}}</td>
-                <td>{{product.price}}</td>
-                <td>{{product.unit_price}}</td>
+              @for (product of productData(); track product.order; let i = $index) {
+              <tr>
+                <td>{{product.products.name}}</td>
+                <td>{{product.stores.city}}</td>
+                <td>{{product.price | currency: 'EUR'}}</td>
+                <td>{{product.unit_price | currency: 'EUR'}}</td>
               </tr>
+              }
             </tbody>
           </table>
         </div>
@@ -53,7 +56,7 @@ export class PricesComponent {
   private route = inject(ActivatedRoute);
   private data = toSignal(this.route.data);
   productData = computed(() => (((this.data() as { priceData: any[] })?.priceData ?? []) as any[])
-    .filter(item => this.filterValue() === '' || item.product_id == this.filterValue()));
+    .filter(filterProducts(this.filterValue())).map((product, i) => ({ ...product, order: i })));
   filter = '';
   filterValue = signal('');
 }

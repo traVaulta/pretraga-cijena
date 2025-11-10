@@ -1,7 +1,8 @@
 import {
-  ApplicationConfig, EnvironmentProviders, InjectionToken,
+  ApplicationConfig,
+  InjectionToken,
   provideBrowserGlobalErrorListeners,
-  provideZonelessChangeDetection, StaticProvider
+  provideZonelessChangeDetection
 } from '@angular/core';
 import { provideRouter } from '@angular/router';
 

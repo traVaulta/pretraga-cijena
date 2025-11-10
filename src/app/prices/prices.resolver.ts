@@ -11,7 +11,15 @@ export const pricesResolver: ResolveFn<any[]> = async (route, state) => {
   const {
     data,
     error
-  } = await supabase.from('prices').select().limit(2000);
+  } = await supabase.from('prices').select(`
+    products ( barcode, name, brand, category, unit, quantity ),
+    price,
+    unit_price,
+    best_price_30,
+    anchor_price,
+    special_price,
+    stores (city, zipcode, address)
+  `).limit(2000);
 
   return data as any[];
 };
