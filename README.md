@@ -46,7 +46,7 @@ bun test
 
 ## Autor
 
-- [Matija Čvrk](https://hr.linkedin.com/in/matija-%C4%8Dvrk-1388b3101/)
+- [Matija Čvrk](https://www.linkedin.com/in/matijacvrk)
 
 ## License
 
